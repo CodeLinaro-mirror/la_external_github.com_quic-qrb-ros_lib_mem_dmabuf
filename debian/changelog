@@ -1,6 +1,6 @@
 ros-jazzy-lib-mem-dmabuf (1.1.0noble) noble; urgency=high
 
- * Debian package for lib_mem_dmabuf (1.1.0 noble)
+  * Debian package for lib_mem_dmabuf (1.1.0 noble)
 
  -- Peng Wang <penwang@qti.qualcomm.com>  Wed, 04 Jun 2025 03:36:55 -0000
 

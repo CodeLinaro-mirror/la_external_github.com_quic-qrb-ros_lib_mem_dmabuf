@@ -1,17 +1,4 @@
-<div align="center">
-  <h1>Lib Mem Dmabuf</h1>
-  <p align="center">
-  </p>
-  <p>A Library for interacting with Linux DMA buffers</p>
-
-  <a href="https://ubuntu.com/download/qualcomm-iot" target="_blank"><img src="https://img.shields.io/badge/Qualcomm%20Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white" alt="Qualcomm Ubuntu"></a>
-  <a href="https://docs.ros.org/en/jazzy/" target="_blank"><img src="https://img.shields.io/badge/ROS%20Jazzy-1c428a?style=for-the-badge&logo=ros&logoColor=white" alt="Jazzy"></a>
-
-</div>
-
----
-
-## 👋 Overview
+# Lib Mem Dmabuf
 
 [lib_mem_dmabuf](https://github.com/qualcomm-qrb-ros/lib_mem_dmabuf) is a userspace library package for interacting with Linux DMA buffers. It provides:
 
@@ -20,27 +7,13 @@
 * Flexible buffer management with automatic or manual release.
 * Support for buffer release callback registration.
 
-> [!NOTE]
 > Prerequisite: Linux kernel version 5.12 or later is required for kernel dma-buf support.
-
-<div align="center">
-  <img src="./docs/assets/architecture.png" alt="architecture">
-</div>
-
-<br>
-
-`lib_mem_dmabuf` allocates DMA buffer from Linux DMA heaps, and exports file descriptor(fd).
-
-The `fd` can be `mmap` from userspace, this enables zero-copy access between different software modules.
 
 ## 🔎 Table of contents
   * [APIs](#-apis)
   * [Supported targets](#-supported-targets)
-  * [Installation](#-installation)
   * [Usage](#-usage)
   * [Build from source](#-build-from-source)
-  * [Contributing](#-contributing)
-  * [Contributors](#%EF%B8%8F-contributors)
   * [License](#-license)
 
 ## ⚓ APIs
@@ -64,41 +37,10 @@ The `fd` can be `mmap` from userspace, this enables zero-copy access between dif
 
 ## 🎯 Supported targets
 
-<table >
-  <tr>
-    <th>Development Hardware</th>
-    <td>Qualcomm Dragonwing™ RB3 Gen2</td>
-    <td>Qualcomm Dragonwing™ IQ-9075 EVK</td>
-  </tr>
-  <tr>
-    <th>Hardware Overview</th>
-    <th><a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit"><img src="https://s7d1.scene7.com/is/image/dmqualcommprod/rb3-gen2-carousel?fmt=webp-alpha&qlt=85" width="180"/></a></th>
-    <th><a href="https://www.qualcomm.com/products/internet-of-things/industrial-processors/iq9-series/iq-9075"><img src="https://s7d1.scene7.com/is/image/dmqualcommprod/dragonwing-IQ-9075-EVK?$QC_Responsive$&fmt=png-alpha" width="160"></a></th>
-  </tr>
-</table>
+- Qualcomm Dragonwing™ RB3 Gen2
+- Qualcomm Dragonwing™ IQ-9075 EVK
 
 ---
-
-## ✨ Installation
-
-> [!IMPORTANT]
-> **PREREQUISITES**: The following steps need to be run on **Qualcomm Ubuntu** and **ROS Jazzy**.<br>
-> Refer to [Install Ubuntu on Qualcomm IoT Platforms](https://ubuntu.com/download/qualcomm-iot) and [Install ROS Jazzy](https://docs.ros.org/en/jazzy/index.html) to setup environment. <br>
-> For Qualcomm Linux, please check out the [Qualcomm Intelligent Robotics Product SDK](https://docs.qualcomm.com/bundle/publicresource/topics/80-70018-265/introduction_1.html?vproduct=1601111740013072&version=1.4&facet=Qualcomm%20Intelligent%20Robotics%20Product%20(QIRP)%20SDK) documents.
-
-Add Qualcomm IOT PPA for Ubuntu:
-
-```bash
-sudo add-apt-repository ppa:ubuntu-qcom-iot/qcom-noble-ppa
-sudo add-apt-repository ppa:ubuntu-qcom-iot/qirp
-sudo apt update
-```
-
-Install Debian package:
-
-```bash
-sudo apt install ros-jazzy-lib-mem-dmabuf
-```
 
 ## 🚀 Usage
 
@@ -140,29 +82,26 @@ if (buf->map()) {
 
 ## 👨‍💻 Build from source
 
-Download the source code and build it with colcon
+Source is located at `sources/quic-qrb-ros/lib_mem_dmabuf/` in the workspace.
+
 ```bash
-source /opt/ros/jazzy/setup.bash
-git clone https://github.com/qualcomm-qrb-ros/lib_mem_dmabuf.git
-colcon build
+cd build-utils/ubuntu/
+python3 build.py --gen-debians --package ros-jazzy-lib-mem-dmabuf
 ```
 
-## 🤝 Contributing
+Built `.deb` files are output to:
 
-We love community contributions! Get started by reading our [CONTRIBUTING.md](CONTRIBUTING.md).<br>
-Feel free to create an issue for bug report, feature requests or any discussion💡.
+```
+<workspace>/debian_packages/oss/ros-jazzy-lib-mem-dmabuf/
+```
 
-## ❤️ Contributors
+### Build dependencies
 
-Thanks to all our contributors who have helped make this project better!
-
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/penww"><img src="https://avatars.githubusercontent.com/u/97950764?v=4" width="100" height="100" alt="penww"/><br /><sub><b>penww</b></sub></a></td>
-    <td align="center"><a href="https://github.com/jiaxshi"><img src="https://avatars.githubusercontent.com/u/147487233?v=4" width="100" height="100" alt="jiaxshi"/><br /><sub><b>jiaxshi</b></sub></a></td>
-  </tr>
-</table>
+| Package | Source |
+| ------- | ------ |
+|         |        |
 
 ## 📜 License
 
-Project is licensed under the [BSD-3-Clause](https://spdx.org/licenses/BSD-3-Clause.html) License. See [LICENSE](./LICENSE) for the full license text.
+Project is licensed under the [BSD-3-Clause](https://spdx.org/licenses/BSD-3-Clause.html) License.
+
